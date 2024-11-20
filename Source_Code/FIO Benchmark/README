@@ -1,0 +1,16 @@
+Steps to run FIO benchmark
+
+1. Install FIO benchmark in all four virtual machines using below command,
+"sudo apt install fio"
+
+
+2. Create and run the shell script using below commands,
+"nano runfio.sh"
+"chmod +x runfio.sh"
+"./runfio.sh"
+
+
+3. It will display the benchmark output on terminal and the output values are then manually written in the results table.
+
+
+4. Run the benchmark on all four virtual machines and populate the output benchmark values in the results table.
