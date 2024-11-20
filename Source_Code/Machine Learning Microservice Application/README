@@ -1,0 +1,25 @@
+Steps to run Machine Learning microservice application
+
+1. Create a python file with microservice application using below command,
+"nano mlbenchmark.py"
+
+2. Run the python file using below command (Requires python installed or python virtual environment),
+"python mlbenchmark.py"
+
+3. This will create the output files that contains benchmarking values.
+
+4. Follow above steps to run microservice application in all four virtual machines. Need to change the output file names as per the machine names in which benchmarking is done.
+
+5. Gather the output files on a single virtual machine using scp command.
+
+6. In the same directory create the python script used to plot the graph using below command,
+"nano mlplot.py"
+
+7. Run the python script to plot the graph using below command (Requires python installed or python virtual environment),
+"python mlplot.py"
+
+8. This will save the graph in png format in same directory.
+
+9. Get the graph from virtual machine into your local machine using scp command.
+
+ 
