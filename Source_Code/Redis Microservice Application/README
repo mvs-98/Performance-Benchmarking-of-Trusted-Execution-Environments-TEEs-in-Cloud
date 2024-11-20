@@ -1,0 +1,53 @@
+Steps to run Redis microservice application
+
+1. Install and start Redis server using below commands,
+"sudo apt install redis-server"
+"sudo systemctl start redis-server"
+
+2. Install Node.js using below command,
+"sudo apt install nodejs npm"
+
+3. Install redis benchmarking tools using below command,
+"sudo apt install redis-tools"
+
+4. Install node package manager and express redis using below commands,
+"sudo apt install npm"
+"npm init -y"
+"npm install express redis"
+
+5. Open port connection by modifying configuration file,
+"sudo nano /etc/redis/redis.conf"
+"change bind line to bind 0.0.0.0"
+"change protected-mode to no"
+
+6. Restart Redis server after modifying configuration file,
+"sudo systemctl restart redis-server"
+
+7. Create and run javascript application,
+"nano app1.js"
+"node app1.js"
+
+8. It will start listening to the requests on port 3000.
+
+9. Run Redis benchmark and save the output in text files,
+"sudo redis-benchmark -h <VM-IP-Address> -p 6379 -t set,get > output.txt"
+"for n in 1000 2000 4000 8000 10000
+do
+	redis-benchmark -h <VM-IP-Address> -p 6379 -t set,get -n $n  > noofreq_${n}.txt
+done"
+
+10. Follow the above steps to install prerequisites and running benchmark on all four virtual machines. Need to change output file names as per machine names.
+
+11. Gather the output files on a single virtual machine using scp command.
+
+12. In the same directory create the python scripts used to plot the throughput and number of requests graph using below commands,
+"nano throughputplot.py"
+"nano noofreqplot.py"
+
+13. Run the python script to plot the graphs using below commands (Requires python installed or python virtual environment),
+"python throughputplot.py"
+"python noofreqplot.py"
+
+14. This will save the graphs in png format in the same directory.
+
+15. Get the graphs from virtual machine into your local machine using scp command.
