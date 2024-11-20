@@ -1,0 +1,31 @@
+Steps for environment setup and configuration
+
+1. Enable Secure Encrypted Virtualization in AMD SEV-SNP based VM using below steps,
+"sudo su"
+"nano /etc/default/grub.d/50-cloudimg-settings.cfg"
+Add "mem encrypt=on and kvm amd.sev=1" parameters to configuration file.
+"sudo update-grub"
+"sudo reboot"
+
+
+2. Check status of Trusted Execution Environment for AMD SEV-SNP and Intel TDX based confidential virtual machines using below commands,
+-------For AMD SEV-SNP,
+	"dmesg | grep SEV"
+-------For Intel TDX,
+	"dmesg | grep TDX"
+	
+
+
+3. Install python virtual environment for running python scripts used for graph plotting,
+"sudo apt-get install python3-venv"
+"python3 -m venv venv"
+
+4. For activating python virtual environment use below command,
+"source venv/bin/activate"
+
+5. Install python required dependencies,
+"pip install matplotlib, numpy, scikit-learn, pandas"
+
+6. Install python virtual environment and required dependencies on all four virtual machines.
+
+7. Follow the steps mentioned in every benchmark's README file to run the benchmark.
