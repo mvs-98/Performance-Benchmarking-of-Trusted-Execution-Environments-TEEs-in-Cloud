@@ -1,0 +1,26 @@
+Steps to run STREAM benchmark
+
+1. Install STREAM benchmark and compile C source code on all four virtual machines using below command,
+"wget https://www.cs.virginia.edu/stream/FTP/Code/stream.c"
+"gcc -O stream.c -o stream"
+
+2. Create and run the shell script using below commands,
+"nano runstream.sh"
+"chmod +x runstream.sh"
+"./runstream.sh"
+
+3. This will create and store benchmark output in a text file in the format "machinename.txt"
+
+4. Run the benchmark on all four virtual machines, which will create 4 output files with name as per machine names.
+
+5. Gather all the output files in one particular virtual machine using scp command
+
+6. In the same directory create the python script used to plot the graph using below command,
+"nano streambench.py"
+
+7. Run the python script to plot the graph using below command (Requires python installed or python virtual environment),
+"python streambench.py"
+
+8. This will save the graph in png format in same directory.
+
+9. Get the graph from virtual machine into your local machine using scp command.
